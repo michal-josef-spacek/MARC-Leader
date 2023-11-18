@@ -22,6 +22,7 @@ meta-spec:
 name: MARC-Leader
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
