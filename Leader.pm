@@ -90,3 +90,149 @@ sub _int {
 1;
 
 __END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+MARC::Leader - MARC leader class.
+
+=head1 SYNOPSIS
+
+ use MARC::Leader;
+
+ my $obj = MARC::Leader->new(%params);
+ my $leader_obj = $obj->parse(leader_str);
+ my $leader_str = $obj->serialize($leader_obj);
+
+=head1 METHODS
+
+=head2 C<new>
+
+ my $obj = MARC::Leader->new(%params);
+
+Constructor.
+
+Returns instance of object.
+
+=head2 C<parse>
+
+ my $leader_obj = $obj->parse(leader_str);
+
+Parse MARC leader string to object.
+
+Returns instance of 'Data::MARC::Leader' object.
+
+=head2 C<serialize>
+
+ my $leader_str = $obj->serialize($leader_obj);
+
+Serialize MARC leader object to string.
+
+Returns string.
+
+=head1 ERRORS
+
+ new():
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
+
+ serialize():
+         Bad 'Data::MARC::Leader' instance to serialize.
+
+
+=head1 EXAMPLE
+
+=for comment filename=parse_marc_leader_and_dump.pl
+
+ use strict;
+ use warnings;
+
+ use Data::Printer;
+ use MARC::Leader;
+
+ if (@ARGV < 1) {
+         print "Usage: $0 marc_leader\n";
+         exit 1;
+ }
+ my $marc_leader = $ARGV[0];
+
+ # Object.
+ my $obj = MARC::Leader->new;
+
+ # Parse.
+ my $leader_obj = $obj->parse($marc_leader);
+
+ # Dump to output.
+ p $leader_obj;
+
+ # Output for '02200cem a2200541 i 4500':
+ # Data::MARC::Leader  {
+ #     parents: Mo::Object
+ #     public methods (3):
+ #         BUILD
+ #         Mo::utils:
+ #             check_strings
+ #         Readonly:
+ #             Readonly
+ #     private methods (0)
+ #     internals: {
+ #         bibliographic_level               "m",
+ #         char_encoding_scheme              "a",
+ #         data_base_addr                    541,
+ #         descriptive_cataloging_form       "i",
+ #         encoding_level                    " ",
+ #         impl_def_portion_len              0,
+ #         indicator_count                   2,
+ #         length                            2200,
+ #         length_of_field_portion_len       4,
+ #         multipart_resource_record_level   " ",
+ #         starting_char_pos_portion_len     5,
+ #         status                            "c",
+ #         subfield_code_count               2,
+ #         type                              "e",
+ #         type_of_control                   " ",
+ #         undefined                         0
+ #     }
+ # }
+
+=head1 DEPENDENCIES
+
+L<Class::Utils>,
+L<Data::MARC::Leader>,
+L<Error::Pure>,
+L<Scalar::Util>.
+
+=head1 SEE ALSO
+
+=over
+
+=item L<Data::MARC::Leader>
+
+Data object for MARC leader.
+
+=back
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/MARC-Leader>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2023 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.02
+
+=cut
