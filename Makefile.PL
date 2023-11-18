@@ -25,6 +25,7 @@ requires 'Scalar::Util' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Leader/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/MARC-Leader';
 resources 'repository' => 'git://github.com/michal-josef-spacek/MARC-Leader';
+test_requires 'Data::MARC::Leader' => 0;
 test_requires 'English' => 0;
 test_requires 'Error::Pure::Utils' => 0;
 test_requires 'Test::More' => 0;

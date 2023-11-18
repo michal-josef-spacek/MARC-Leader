@@ -52,10 +52,26 @@ sub serialize {
 	my ($self, $leader_obj) = @_;
 
 	# Check object.
-	# TODO
+	if (! blessed($leader_obj) || ! $leader_obj->isa('Data::MARC::Leader')) {
+		err "Bad 'Data::MARC::Leader' instance to serialize.";
+	}
 
-	my $leader = '';
-	# TODO
+	my $leader = sprintf('%05d', $leader_obj->length).
+		$leader_obj->status.
+		$leader_obj->type.
+		$leader_obj->bibliographic_level.
+		$leader_obj->type_of_control.
+		$leader_obj->char_encoding_scheme.
+		$leader_obj->indicator_count.
+		$leader_obj->subfield_code_count.
+		sprintf('%05d', $leader_obj->data_base_addr).
+		$leader_obj->encoding_level.
+		$leader_obj->descriptive_cataloging_form.
+		$leader_obj->multipart_resource_record_level.
+		$leader_obj->length_of_field_portion_len.
+		$leader_obj->starting_char_pos_portion_len.
+		$leader_obj->impl_def_portion_len.
+		$leader_obj->undefined;
 
 	return $leader;
 }
