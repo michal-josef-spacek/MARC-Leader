@@ -104,7 +104,7 @@ MARC::Leader - MARC leader class.
  use MARC::Leader;
 
  my $obj = MARC::Leader->new(%params);
- my $leader_obj = $obj->parse(leader_str);
+ my $leader_obj = $obj->parse($leader_str);
  my $leader_str = $obj->serialize($leader_obj);
 
 =head1 METHODS
@@ -119,7 +119,7 @@ Returns instance of object.
 
 =head2 C<parse>
 
- my $leader_obj = $obj->parse(leader_str);
+ my $leader_obj = $obj->parse($leader_str);
 
 Parse MARC leader string to object.
 
