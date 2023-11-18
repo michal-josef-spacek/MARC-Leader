@@ -1,6 +1,5 @@
 TODO
 ====
-2. Implement serialize.
 3. Add doc.
 4. Add tests.
 5.
@@ -8,4 +7,7 @@ TODO
 Applied
 =======
 1. First version.
+OK [20231118] skim
+
+2. Implement serialize.
 OK [20231118] skim
