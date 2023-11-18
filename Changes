@@ -1,5 +1,6 @@
 0.02
  - Add doc.
+ - Add serialize() example to doc.
  - Add support for length with blank string.
 
 0.01 2023-11-18T01:17:56+01:00
