@@ -1,6 +1,7 @@
 TODO
 ====
-6.
+6. Add example to doc for parse() and print via MARC::Leader::Print.
+7.
 
 Applied
 =======
