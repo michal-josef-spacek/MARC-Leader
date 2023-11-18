@@ -2,8 +2,11 @@ use strict;
 use warnings;
 
 use Data::MARC::Leader;
+use English;
+use Error::Pure::Utils qw(clean);
 use MARC::Leader;
-use Test::More 'tests' => 2;
+use Test::MockObject;
+use Test::More 'tests' => 4;
 use Test::NoWarnings;
 
 # Test.
@@ -28,3 +31,21 @@ my $data = Data::MARC::Leader->new(
 );
 my $ret = $obj->serialize($data);
 is($ret, '02200cem a2200541 i 4500', 'Serialize leader object.');
+
+# Test.
+$obj = MARC::Leader->new;
+eval {
+	$obj->serialize('bad');
+};
+is($EVAL_ERROR, "Bad 'Data::MARC::Leader' instance to serialize.\n",
+	"Bad 'Data::MARC::Leader' instance to serialize (string).");
+clean();
+
+# Test.
+$obj = MARC::Leader->new;
+eval {
+	$obj->serialize(Test::MockObject->new);
+};
+is($EVAL_ERROR, "Bad 'Data::MARC::Leader' instance to serialize.\n",
+	"Bad 'Data::MARC::Leader' instance to serialize (bad object).");
+clean();
