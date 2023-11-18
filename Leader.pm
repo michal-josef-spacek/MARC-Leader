@@ -27,7 +27,7 @@ sub parse {
 	my ($self, $leader) = @_;
 
 	my %params = (
-		'length' => int(substr $leader, 0, 5),
+		'length' => $self->_int($leader, 0, 5),,
 		'status' => (substr $leader, 5, 1),
 		'type' => (substr $leader, 6, 1),
 		'bibliographic_level' => (substr $leader, 7, 1),
@@ -35,7 +35,7 @@ sub parse {
 		'char_encoding_scheme' => (substr $leader, 9, 1),
 		'indicator_count' => (substr $leader, 10, 1),
 		'subfield_code_count' => (substr $leader, 11, 1),
-		'data_base_addr' => int(substr $leader, 12, 5),
+		'data_base_addr' => $self->_int($leader, 12, 5),
 		'encoding_level' => (substr $leader, 17, 1),
 		'descriptive_cataloging_form' => (substr $leader, 18, 1),
 		'multipart_resource_record_level' => (substr $leader, 19, 1),
@@ -74,6 +74,17 @@ sub serialize {
 		$leader_obj->undefined;
 
 	return $leader;
+}
+
+sub _int {
+	my ($self, $leader, $pos, $length) = @_;
+
+	my $ret = substr $leader, $pos, $length;
+	if ($ret =~ m/^\s+$/ms) {
+		$ret = 0;
+	} else {
+		$ret = int($ret);
+	}
 }
 
 1;
