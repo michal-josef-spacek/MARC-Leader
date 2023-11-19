@@ -1,5 +1,6 @@
 Changes
 examples/parse_marc_leader_and_dump.pl
+examples/parse_marc_leader_and_print.pl
 examples/serialize_marc_leader.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm

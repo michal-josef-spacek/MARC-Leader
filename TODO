@@ -1,6 +1,5 @@
 TODO
 ====
-6. Add example to doc for parse() and print via MARC::Leader::Print.
 7.
 
 Applied
@@ -19,3 +18,6 @@ OK [20231118] skim
 
 5. Add example for serialize() to doc.
 OK [20231118] skim
+
+6. Add example to doc for parse() and print via MARC::Leader::Print.
+OK [20231119] skim
