@@ -1,4 +1,4 @@
-0.04
+0.04 2023-11-20T16:14:23+01:00
  - Regen README file.
  - Rewrite to new Data::MARC::Leader data object.
 
