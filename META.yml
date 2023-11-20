@@ -28,7 +28,7 @@ no_index:
     - xt
 requires:
   Class::Utils: 0.03
-  Data::MARC::Leader: 0
+  Data::MARC::Leader: 0.03
   Error::Pure: 0
   Scalar::Util: 0
   perl: 5.6.2

@@ -33,7 +33,7 @@ p $leader_obj;
 #     private methods (0)
 #     internals: {
 #         bibliographic_level               "m",
-#         char_encoding_scheme              "a",
+#         char_coding_scheme                "a",
 #         data_base_addr                    541,
 #         descriptive_cataloging_form       "i",
 #         encoding_level                    " ",

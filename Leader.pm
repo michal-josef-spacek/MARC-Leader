@@ -32,7 +32,7 @@ sub parse {
 		'type' => (substr $leader, 6, 1),
 		'bibliographic_level' => (substr $leader, 7, 1),
 		'type_of_control' => (substr $leader, 8, 1),
-		'char_encoding_scheme' => (substr $leader, 9, 1),
+		'char_coding_scheme' => (substr $leader, 9, 1),
 		'indicator_count' => (substr $leader, 10, 1),
 		'subfield_code_count' => (substr $leader, 11, 1),
 		'data_base_addr' => $self->_int($leader, 12, 5),
@@ -61,7 +61,7 @@ sub serialize {
 		$leader_obj->type.
 		$leader_obj->bibliographic_level.
 		$leader_obj->type_of_control.
-		$leader_obj->char_encoding_scheme.
+		$leader_obj->char_coding_scheme.
 		$leader_obj->indicator_count.
 		$leader_obj->subfield_code_count.
 		sprintf('%05d', $leader_obj->data_base_addr).
@@ -180,7 +180,7 @@ Returns string.
  #     private methods (0)
  #     internals: {
  #         bibliographic_level               "m",
- #         char_encoding_scheme              "a",
+ #         char_coding_scheme                "a",
  #         data_base_addr                    541,
  #         descriptive_cataloging_form       "i",
  #         encoding_level                    " ",
@@ -257,7 +257,7 @@ Returns string.
  # Data object.
  my $data_marc_leader = Data::MARC::Leader->new(
          'bibliographic_level' => 'm',
-         'char_encoding_scheme' => 'a',
+         'char_coding_scheme' => 'a',
          'data_base_addr' => 541,
          'descriptive_cataloging_form' => 'i',
          'encoding_level' => ' ',
