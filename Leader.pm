@@ -26,6 +26,11 @@ sub new {
 sub parse {
 	my ($self, $leader) = @_;
 
+	# Check length.
+	if (length($leader) != 24) {
+		err 'Bad length of MARC leader.';
+	}
+
 	$leader =~ s/\-/\ /msg;
 
 	my %params = (
@@ -140,6 +145,9 @@ Returns string.
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+
+ parse():
+         Bad length of MARC leader.
 
  serialize():
          Bad 'Data::MARC::Leader' instance to serialize.

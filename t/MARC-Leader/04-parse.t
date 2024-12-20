@@ -1,8 +1,10 @@
 use strict;
 use warnings;
 
+use English;
+use Error::Pure::Utils qw(clean);
 use MARC::Leader;
-use Test::More 'tests' => 49;
+use Test::More 'tests' => 50;
 use Test::NoWarnings;
 
 # Test.
@@ -67,3 +69,11 @@ is($ret->length_of_field_portion_len, '4', 'Get length of the length-of-field po
 is($ret->starting_char_pos_portion_len, '5', 'Get length of the starting-character-position portion (5).');
 is($ret->impl_def_portion_len, '0', 'Get length of the implementation-defined portion (0).');
 is($ret->undefined, '0', 'Get undefined (0).');
+
+# Test.
+$obj = MARC::Leader->new;
+eval {
+	$obj->parse('foo');
+};
+is($EVAL_ERROR, "Bad length of MARC leader.\n", 'Bad length of MARC leader.');
+clean();

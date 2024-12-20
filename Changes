@@ -1,4 +1,5 @@
 0.05
+ - Add check for MARC leader size.
  - Add support from parsing of leader with '-' instead of space.
  - Update copyright years.
 

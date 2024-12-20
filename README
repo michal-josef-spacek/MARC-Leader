@@ -35,6 +35,9 @@ ERRORS
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
 
+     parse():
+             Bad length of MARC leader.
+
      serialize():
              Bad 'Data::MARC::Leader' instance to serialize.
 
