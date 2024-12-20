@@ -1,4 +1,5 @@
 0.05
+ - Add support from parsing of leader with '-' instead of space.
  - Update copyright years.
 
 0.04 2023-11-20T16:14:23+01:00

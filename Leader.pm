@@ -26,6 +26,8 @@ sub new {
 sub parse {
 	my ($self, $leader) = @_;
 
+	$leader =~ s/\-/\ /msg;
+
 	my %params = (
 		'length' => $self->_int($leader, 0, 5),,
 		'status' => (substr $leader, 5, 1),
