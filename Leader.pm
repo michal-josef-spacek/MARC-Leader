@@ -34,7 +34,7 @@ sub parse {
 	$leader =~ s/\-/\ /msg;
 
 	my %params = (
-		'length' => $self->_int($leader, 0, 5),,
+		'length' => $self->_int($leader, 0, 5),
 		'status' => (substr $leader, 5, 1),
 		'type' => (substr $leader, 6, 1),
 		'bibliographic_level' => (substr $leader, 7, 1),
