@@ -1,4 +1,4 @@
-0.06
+0.06 2025-04-13T10:14:54+02:00
  - Add 'verbose' parameter for verbose mode.
  - Add length of leader to error.
  - Add raw leader string to object.
