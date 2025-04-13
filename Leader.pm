@@ -6,6 +6,7 @@ use warnings;
 use Class::Utils qw(set_params);
 use Data::MARC::Leader 0.05;
 use Error::Pure qw(err);
+use Mo::utils 0.06 qw(check_bool);
 use Scalar::Util qw(blessed);
 
 our $VERSION = 0.06;
@@ -17,8 +18,14 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
+	# Verbose mode.
+	$self->{'verbose'} = 0;
+
 	# Process parameters.
 	set_params($self, @params);
+
+	# Check verbose.
+	check_bool($self, 'verbose');
 
 	return $self;
 }
@@ -34,6 +41,10 @@ sub parse {
 	}
 
 	$leader =~ s/\-/\ /msg;
+
+	if ($self->{'verbose'}) {
+		print "Leader: |$leader|\n";
+	}
 
 	my %params = (
 		'raw' => $leader,
@@ -126,6 +137,17 @@ MARC::Leader - MARC leader class.
 
 Constructor.
 
+=over 8
+
+=item * C<verbose>
+
+Verbose mode flag.
+It's boolean value.
+
+Default value is 0.
+
+=back
+
 Returns instance of object.
 
 =head2 C<parse>
@@ -149,6 +171,9 @@ Returns string.
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+         From Mo::utils::check_bool():
+                 Parameter 'verbose' must be a bool (0/1).
+                         Value: %s
 
  parse():
          Bad length of MARC leader.
@@ -303,6 +328,7 @@ Returns string.
 L<Class::Utils>,
 L<Data::MARC::Leader>,
 L<Error::Pure>,
+L<Mo::utils>,
 L<Scalar::Util>.
 
 =head1 SEE ALSO

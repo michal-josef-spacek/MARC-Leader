@@ -1,4 +1,5 @@
 0.06
+ - Add 'verbose' parameter for verbose mode.
  - Add length of leader to error.
  - Add raw leader string to object.
  - Update copyright years.

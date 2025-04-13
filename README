@@ -14,6 +14,12 @@ METHODS
 
     Constructor.
 
+    *       "verbose"
+
+            Verbose mode flag. It's boolean value.
+
+            Default value is 0.
+
     Returns instance of object.
 
   "parse"
@@ -34,6 +40,9 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
+             From Mo::utils::check_bool():
+                     Parameter 'verbose' must be a bool (0/1).
+                             Value: %s
 
      parse():
              Bad length of MARC leader.
@@ -174,7 +183,7 @@ EXAMPLE3
      # 02200cem a2200541 i 4500
 
 DEPENDENCIES
-    Class::Utils, Data::MARC::Leader, Error::Pure, Scalar::Util.
+    Class::Utils, Data::MARC::Leader, Error::Pure, Mo::utils, Scalar::Util.
 
 SEE ALSO
     Data::MARC::Leader

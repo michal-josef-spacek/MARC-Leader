@@ -1,7 +1,8 @@
 TODO
 ====
 7. Check bad input data in parse().
-8.
+8. Test of 'verbose' parameter.
+9.
 
 Applied
 =======
