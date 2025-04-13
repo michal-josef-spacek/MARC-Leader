@@ -37,6 +37,7 @@ ERRORS
 
      parse():
              Bad length of MARC leader.
+                     Length: %s
 
      serialize():
              Bad 'Data::MARC::Leader' instance to serialize.

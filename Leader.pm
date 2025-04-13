@@ -28,7 +28,9 @@ sub parse {
 
 	# Check length.
 	if (length($leader) != 24) {
-		err 'Bad length of MARC leader.';
+		err 'Bad length of MARC leader.',
+			'Length', length($leader),
+		;
 	}
 
 	$leader =~ s/\-/\ /msg;
@@ -148,6 +150,7 @@ Returns string.
 
  parse():
          Bad length of MARC leader.
+                 Length: %s
 
  serialize():
          Bad 'Data::MARC::Leader' instance to serialize.
