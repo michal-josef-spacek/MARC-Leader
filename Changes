@@ -1,5 +1,6 @@
 0.06
  - Add length of leader to error.
+ - Add raw leader string to object.
  - Update copyright years.
 
 0.05 2024-12-20T15:20:44+01:00

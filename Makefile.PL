@@ -19,7 +19,7 @@ perl_version 5.006002;
 readme_from 'Leader.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0.03;
-requires 'Data::MARC::Leader' => 0.03;
+requires 'Data::MARC::Leader' => 0.05;
 requires 'Error::Pure' => 0;
 requires 'Scalar::Util' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Leader/issues',

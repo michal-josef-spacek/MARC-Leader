@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
-use Data::MARC::Leader;
+use Data::MARC::Leader 0.05;
 use Error::Pure qw(err);
 use Scalar::Util qw(blessed);
 
@@ -36,6 +36,8 @@ sub parse {
 	$leader =~ s/\-/\ /msg;
 
 	my %params = (
+		'raw' => $leader,
+
 		'length' => $self->_int($leader, 0, 5),
 		'status' => (substr $leader, 5, 1),
 		'type' => (substr $leader, 6, 1),
