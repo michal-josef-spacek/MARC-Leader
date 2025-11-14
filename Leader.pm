@@ -9,7 +9,7 @@ use Error::Pure qw(err);
 use Mo::utils 0.06 qw(check_bool);
 use Scalar::Util qw(blessed);
 
-our $VERSION = 0.07;
+our $VERSION = 0.08;
 
 # Constructor.
 sub new {
@@ -366,6 +366,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.07
+0.08
 
 =cut
