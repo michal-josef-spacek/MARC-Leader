@@ -1,7 +1,6 @@
 TODO
 ====
 7. Check bad input data in parse().
-8. Test of 'verbose' parameter.
 9. Test length of bad leader parameter.
 10.
 
@@ -24,3 +23,6 @@ OK [20231118] skim
 
 6. Add example to doc for parse() and print via MARC::Leader::Print.
 OK [20231119] skim
+
+8. Test of 'verbose' parameter.
+OK [20251114] skim
