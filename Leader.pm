@@ -107,6 +107,8 @@ sub _int {
 	} else {
 		$ret = int($ret);
 	}
+
+	return $ret;
 }
 
 1;
