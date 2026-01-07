@@ -49,7 +49,7 @@ sub parse {
 	my %params = (
 		'raw' => $leader,
 
-		'length' => $self->_int($leader, 0, 5),
+		'length' => $self->_int($leader, 0, 5, 'Bad number in length.'),
 		'status' => (substr $leader, 5, 1),
 		'type' => (substr $leader, 6, 1),
 		'bibliographic_level' => (substr $leader, 7, 1),
@@ -57,7 +57,7 @@ sub parse {
 		'char_coding_scheme' => (substr $leader, 9, 1),
 		'indicator_count' => (substr $leader, 10, 1),
 		'subfield_code_count' => (substr $leader, 11, 1),
-		'data_base_addr' => $self->_int($leader, 12, 5),
+		'data_base_addr' => $self->_int($leader, 12, 5, 'Bad number in data base address.'),
 		'encoding_level' => (substr $leader, 17, 1),
 		'descriptive_cataloging_form' => (substr $leader, 18, 1),
 		'multipart_resource_record_level' => (substr $leader, 19, 1),
@@ -99,9 +99,14 @@ sub serialize {
 }
 
 sub _int {
-	my ($self, $leader, $pos, $length) = @_;
+	my ($self, $leader, $pos, $length, $err_message) = @_;
 
 	my $ret = substr $leader, $pos, $length;
+	if ($ret !~ m/^[\s\d]+$/ms) {
+		err $err_message,
+			'String', $ret,
+		;
+	}
 	if ($ret =~ m/^\s+$/ms) {
 		$ret = 0;
 	} else {
@@ -180,6 +185,10 @@ Returns string.
  parse():
          Bad length of MARC leader.
                  Length: %s
+         Bad number in data base address.
+                 String: %s
+         Bad number in length.
+                 String: %s
 
  serialize():
          Bad 'Data::MARC::Leader' instance to serialize.
