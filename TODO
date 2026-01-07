@@ -1,7 +1,6 @@
 TODO
 ====
 7. Check bad input data in parse().
-9. Test length of bad leader parameter.
 10.
 
 Applied
@@ -26,3 +25,6 @@ OK [20231119] skim
 
 8. Test of 'verbose' parameter.
 OK [20251114] skim
+
+9. Test length of bad leader parameter.
+OK [20260107] skim
