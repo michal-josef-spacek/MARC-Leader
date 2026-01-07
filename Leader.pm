@@ -353,7 +353,7 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
-© 2023-2025 Michal Josef Špaček
+© 2023-2026 Michal Josef Špaček
 
 BSD 2-Clause License
 
