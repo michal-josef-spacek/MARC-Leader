@@ -56,6 +56,10 @@ ERRORS
      parse():
              Bad length of MARC leader.
                      Length: %s
+             Bad number in data base address.
+                     String: %s
+             Bad number in length.
+                     String: %s
 
      serialize():
              Bad 'Data::MARC::Leader' instance to serialize.
