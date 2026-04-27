@@ -18,11 +18,17 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
+	# Mode strict.
+	$self->{'mode_strict'} = 0;
+
 	# Verbose mode.
 	$self->{'verbose'} = 0;
 
 	# Process parameters.
 	set_params($self, @params);
+
+	# Check 'mode_strict'.
+	check_bool($self, 'mode_strict');
 
 	# Check verbose.
 	check_bool($self, 'verbose');
@@ -40,7 +46,10 @@ sub parse {
 		;
 	}
 
-	$leader =~ s/\-/\ /msg;
+	# Dashes are spaces.
+	if (! $self->{'mode_strict'}) {
+		$leader =~ s/\-/\ /msg;
+	}
 
 	if ($self->{'verbose'}) {
 		print "Leader: |$leader|\n";
@@ -145,6 +154,15 @@ MARC::Leader - MARC leader class.
 Constructor.
 
 =over 8
+
+=item * C<mode_strict>
+
+Strict mode for parsing.
+
+In not strict mode, parser could parse MARC leader with dashes instead of
+spaces,
+
+Default is 0.
 
 =item * C<verbose>
 
