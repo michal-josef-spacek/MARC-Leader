@@ -30,6 +30,7 @@ no_index:
 requires:
   Class::Utils: 0.03
   Data::MARC::Leader: 0.05
+  English: 0
   Error::Pure: 0
   Mo::utils: 0.05
   Scalar::Util: 0
